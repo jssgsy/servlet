@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 导入本地jquery库，注意目录问题，静态资源不能放在WEB-INF下，否则无法导入 -->
+<script src="js/jquery.js"></script>
+
+<title>Insert title here</title>
+<script type="text/javascript">
+//获取ajax对象XMLHttpRequest
+function getXhr(){
+	if(window.XMLHttpRequest){
+		xhr = new XMLHttpRequest();
+	}else{
+		xhr = new ActiveXObject("Microsoft.XMLHttp");
+	}
+	return xhr; 	
+}
+//get请求方式
+function getTextByGet(){
+	var xhr = getXhr();
+	xhr.onreadystatechange=function()
+	  {
+	  if (xhr.readyState==4 && xhr.status==200)
+	    {
+		 var txt = xhr.responseText;
+		 alert(txt);
+	    }
+	  }
+	xhr.open("get","get_text?name=柳明录",true);//这里的请求地址就是web.xml中为Servlet配置的地址
+	xhr.send(null);
+}
+//post请求方式
+function getTextByPost(){
+	var xhr = getXhr();
+	xhr.onreadystatechange=function()
+	  {
+	  if (xhr.readyState==4 && xhr.status==200)
+	    {
+		 var txt = xhr.responseText;
+		 alert(txt);
+	    }
+	  }	
+	xhr.open("post","get_text",true);//这里的请求地址就是web.xml中为Servlet配置的地址
+	//利用post请求，下面这句不可少,位置也很重要，必须放在open方法下面。
+	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhr.send("name=柳明录&age=24");//请求参数放在send方法中
+}
+</script>
+
+
+<script type="text/javascript">
+<!-- 通过$.ajax()的get方式获取后台一小段文本 -->
+function getTextByAjaxGet(){
+	//注意，url，type等属性以逗号而不是分号隔开
+	$.ajax({
+		url:"get_text?name=lml&age=24",
+		type:"get",
+		dataType:"text",
+		async:true,
+		success:function(data){
+			alert(data);
+		}
+		
+	});
+}
+
+<!-- 通过$.ajax()的post方式获取后台一小段文本 -->
+function getTextByAjaxPost(){
+	//注意，url，type等属性以逗号而不是分号隔开
+	$.ajax({
+		url:"get_text",
+		type:"post",
+		data:{name:"柳明录",age:24},
+		dataType:"text",
+		async:true,
+		success:function(data){
+			alert(data);
+		}		
+	});
+}
+</script>
+
+</head>
+<body>
+	<!-- 获取Ajax对象 -->
+	<a href="javascript:;" onclick="alert(getXhr())">获取Ajax对象</a><br>
+	
+	<!-- get方式请求Ajax对象获取后台一小段文本 -->
+	<a href="javascript:;" onclick="getTextByGet()">get方式请求获取后台一小段文本</a><br>
+	
+	<!-- post方式请求Ajax对象获取后台一小段文本 -->
+	<a href="javascript:;" onclick="getTextByPost()">post方式获取后台一小段文本</a><br>
+	
+	<!-- 利用$.ajax() get方式获取后台一小段文本 -->
+	<a href="javascript:;" onclick="getTextByAjaxGet()">利用$.ajax() get方式获取后台一小段文本</a><br>
+	
+	<!-- 利用$.ajax() post方式获取后台一小段文本 -->
+	<a href="javascript:;" onclick="getTextByAjaxPost()">利用$.ajax() post方式获取后台一小段文本</a>
+	
+</body>
+</html>
