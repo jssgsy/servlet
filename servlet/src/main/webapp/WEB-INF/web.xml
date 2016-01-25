@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>servlet1</display-name>
+  
+  <!-- 测试ajax请求的servlet -->
   <servlet>
     <servlet-name>ajaxServlet</servlet-name>
     <servlet-class>com.univ.servlet.ajax.AjaxServlet</servlet-class>
@@ -9,12 +11,25 @@
     <servlet-name>ajaxServlet</servlet-name>
     <url-pattern>/get_text</url-pattern>
   </servlet-mapping>
+  
+  <!-- 最普通的filter测试 -->
+  <filter>
+  	<filter-name>helloFilter</filter-name>
+  	<filter-class>com.univ.filter.HelloFilter</filter-class>
+  	<!-- 给filter配置初始化参数 -->
+  	<init-param>
+  		<param-name>name</param-name>
+  		<param-value>univ</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>helloFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
