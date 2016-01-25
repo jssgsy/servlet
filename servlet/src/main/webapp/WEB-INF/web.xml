@@ -12,6 +12,21 @@
     <url-pattern>/get_text</url-pattern>
   </servlet-mapping>
   
+   <!-- 最普通的servlet测试 -->
+  <servlet>
+  	<servlet-name>helloServlet</servlet-name>
+  	<servlet-class>com.univ.servlet.HelloServlet</servlet-class>
+  	<!-- 给servlet配置初始化参数 -->
+  	<init-param>
+  		<param-name>name</param-name>
+  		<param-value>helloServlet</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>helloServlet</servlet-name>
+  	<url-pattern>/helloServlet</url-pattern>
+  </servlet-mapping>
+  
   <!-- 最普通的filter测试 -->
   <filter>
   	<filter-name>helloFilter</filter-name>
