@@ -3,7 +3,6 @@ package com.univ.filter;
 import org.apache.log4j.Logger;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 /**
