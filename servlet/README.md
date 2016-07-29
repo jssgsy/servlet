@@ -10,3 +10,4 @@
 * 注解servlet与filter的使用;
 * 各种类型listener的使用;
 * 编码过滤器(只对post请求有效);
+* 利用cookie传递数据;

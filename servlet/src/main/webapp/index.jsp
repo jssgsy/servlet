@@ -18,6 +18,8 @@
     </select>
     <input type="submit" >
 
+    <h2>cookie传递数据</h2>
+    <a href="/servlet/cookieServlet?cookieName=cookieValue">访问/cookieServlet</a>
 </form>
 </body>
 </html>
