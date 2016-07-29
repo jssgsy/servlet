@@ -1,5 +1,7 @@
 package com.univ.servlet.annotation;
 
+import org.apache.log4j.Logger;
+
 import java.io.IOException;
 
 import javax.servlet.Filter;
@@ -23,15 +25,17 @@ import javax.servlet.annotation.WebInitParam;
 @WebFilter(urlPatterns={"/annotation"},initParams={@WebInitParam(name="name",value="univ")})
 public class AnnotationFilter implements Filter {
 
+	private Logger logger = Logger.getLogger(AnnotationFilter.class);
+
 	private FilterConfig filterConfig;
 	public void init(FilterConfig filterConfig) throws ServletException {
-		System.out.println("AnnotationFilter初始化");
+		logger.debug("AnnotationFilter.init()-----------");
 		this.filterConfig = filterConfig;
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		System.out.println("给注解的filter AnnotationFilter配置的初始化参数为： " + filterConfig.getInitParameter("name"));
+		logger.debug("给注解的filter AnnotationFilter配置的初始化参数为： " + filterConfig.getInitParameter("name"));
 		chain.doFilter(request, response);
 	}
 

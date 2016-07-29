@@ -1,5 +1,7 @@
 package com.univ.listener;
 
+import org.apache.log4j.Logger;
+
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
@@ -10,13 +12,14 @@ import javax.servlet.http.HttpSessionListener;
 */
 
 public class MyHttpSessionListener implements HttpSessionListener {
+	private Logger logger = Logger.getLogger(MyHttpSessionListener.class);
 
 	public void sessionCreated(HttpSessionEvent se) {
-		System.out.println("MyHttpSessionListener.sessionCreated(HttpSessionEvent se)");
+		logger.debug("MyHttpSessionListener.sessionCreated(HttpSessionEvent se)");
 	}
 
 	public void sessionDestroyed(HttpSessionEvent se) {
-		System.out.println("MyHttpSessionListener.sessionDestroyed(HttpSessionEvent se)");
+		logger.debug("MyHttpSessionListener.sessionDestroyed(HttpSessionEvent se)");
 	}
 
 }

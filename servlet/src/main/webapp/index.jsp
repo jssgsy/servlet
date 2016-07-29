@@ -8,6 +8,16 @@
 </head>
 <body>
 
-Hello...
+<form action="/servlet/helloServlet" method="post">
+
+    <select name="name">
+        <%--value的值才是真正传递到后台的值,option标签中的值只是页面显示用--%>
+        <option value="">默认值""</option>
+        <option value="用户选定的值value">用户选定的值</option>
+
+    </select>
+    <input type="submit" >
+
+</form>
 </body>
 </html>

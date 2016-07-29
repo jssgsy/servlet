@@ -1,12 +1,13 @@
 package com.univ.servlet;
 
-import java.io.IOException;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /** 
  * @author: liuml
@@ -19,11 +20,16 @@ import javax.servlet.http.HttpServletResponse;
 
 public class HelloServlet extends HttpServlet {
 
-	@Override
+    private Logger logger = Logger.getLogger(HelloServlet.class);
+
+    @Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		logger.debug("begin  HelloServlet.doGet()---------------");
 		ServletConfig servletConfig = super.getServletConfig();
-		System.out.println("给HelloServlet配置的初始化参数为： " + servletConfig.getInitParameter("name"));
+        logger.debug("给HelloServlet配置的初始化参数为： " + servletConfig.getInitParameter("name"));
+        logger.debug("下拉框选中的值为: " + req.getParameter("name"));
+        logger.debug("end  HelloServlet.doGet()---------------");
 	}
 
 	@Override

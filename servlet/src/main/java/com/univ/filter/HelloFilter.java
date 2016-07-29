@@ -1,5 +1,7 @@
 package com.univ.filter;
 
+import org.apache.log4j.Logger;
+
 import java.io.IOException;
 
 import javax.servlet.Filter;
@@ -29,13 +31,15 @@ import javax.servlet.http.HttpServletResponse;
 
 public class HelloFilter implements Filter {
 
+	private Logger logger = Logger.getLogger(HelloFilter.class);
+
 	/**
 	 * 定义一个成员变量用以接收配置的参数
 	 */
 	private FilterConfig filterConfig;
 	
 	public void init(FilterConfig filterConfig) throws ServletException {
-		System.out.println("HelloFilter.init()------------");
+		logger.debug("HelloFilter.init()------------");
 		this.filterConfig = filterConfig;
 	}
 
@@ -44,15 +48,15 @@ public class HelloFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		System.out.println("给HelloFilter配置的初始化参数为： " + filterConfig.getInitParameter("name"));
-		System.out.println("before chain.doFilter()--------------");
+		logger.debug("给HelloFilter配置的初始化参数为： " + filterConfig.getInitParameter("name"));
+		logger.debug("before HelloFilter#chain.doFilter()--------------");
 		chain.doFilter(request, response);//此时将转到后续的filter(servlet)处执行
-		System.out.println("after chain.doFilter()--------------");
+		logger.debug("after HelloFilter#chain.doFilter()--------------");
 
 	}
 
 	public void destroy() {
-		System.out.println("HelloFilter.destroy() ------------");
+		logger.debug("HelloFilter.destroy() ------------");
 	}
 
 }

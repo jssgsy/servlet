@@ -1,6 +1,6 @@
 package com.univ.listener;
 
-import java.util.Enumeration;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletContextAttributeEvent;
 import javax.servlet.ServletContextAttributeListener;
@@ -13,11 +13,13 @@ import javax.servlet.ServletContextAttributeListener;
 
 public class MyServletContextAttributeListener implements ServletContextAttributeListener {
 
+	private Logger logger = Logger.getLogger(MyServletContextAttributeListener.class);
+
 	/*
 	 * 实验证明，应用启动的时候会自动往ServletContext中添加几个属性，但这里却只调用了一次。？
 	 */
 	public void attributeAdded(ServletContextAttributeEvent event) {
-		System.out.println("MyServletContextAttributeListener.attributeAdded(ServletContextAttributeEvent event)");
+		logger.debug("MyServletContextAttributeListener.attributeAdded(ServletContextAttributeEvent event)");
 //		Enumeration<String> enums = event.getServletContext().getAttributeNames();
 //		System.out.println("这是是应用启动时自动添加的属性----------start---------");
 //		while (enums.hasMoreElements()) {
@@ -29,11 +31,11 @@ public class MyServletContextAttributeListener implements ServletContextAttribut
 	}
 
 	public void attributeRemoved(ServletContextAttributeEvent event) {
-		System.out.println("MyServletContextAttributeListener.attributeRemoved(ServletContextAttributeEvent event)");
+		logger.debug("MyServletContextAttributeListener.attributeRemoved(ServletContextAttributeEvent event)");
 	}
 
 	public void attributeReplaced(ServletContextAttributeEvent event) {
-		System.out.println("MyServletContextAttributeListener.attributeReplaced(ServletContextAttributeEvent event)");
+		logger.debug("MyServletContextAttributeListener.attributeReplaced(ServletContextAttributeEvent event)");
 	}
 
 }

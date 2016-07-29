@@ -1,5 +1,7 @@
 package com.univ.listener;
 
+import org.apache.log4j.Logger;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
@@ -11,12 +13,15 @@ import javax.servlet.ServletContextListener;
 
 public class MyServletContextListener implements ServletContextListener {
 
+	private Logger logger = Logger.getLogger(MyServletContextListener.class);
+
+
 	public void contextInitialized(ServletContextEvent sce) {
-		System.out.println("MyServletContextListener.contextInitialized(ServletContextEvent sce)");
+		logger.debug("MyServletContextListener.contextInitialized(ServletContextEvent sce)");
 	}
 
 	public void contextDestroyed(ServletContextEvent sce) {
-		System.out.println("MyServletContextListener.contextDestroyed(ServletContextEvent sce)");
+		logger.debug("MyServletContextListener.contextDestroyed(ServletContextEvent sce)");
 	}
 
 }

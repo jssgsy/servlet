@@ -1,5 +1,8 @@
 package com.univ.servlet.annotation;
 
+import com.univ.servlet.HelloServlet;
+import org.apache.log4j.Logger;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -22,11 +25,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns={"/annotation"},initParams={
 		@WebInitParam(name="name",value="univ")})
 public class AnnotationServlet extends HttpServlet{
+	private Logger logger = Logger.getLogger(AnnotationServlet.class);
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("-----使用注解的servlet还是得继承自HttpServlet---");
-		System.out.println("给注解的servlet AnnotationServlet配置的初始化参数为： " + getServletConfig().getInitParameter("name"));
+		logger.debug("使用注解的servlet还是得继承自HttpServlet---");
+		logger.debug("给注解的servlet AnnotationServlet配置的初始化参数为： " + getServletConfig().getInitParameter("name"));
 		
 	}
 
