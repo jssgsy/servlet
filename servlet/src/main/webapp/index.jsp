@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="/servlet/helloServlet" method="post">
+<form action="/helloServlet" method="post">
 
     <select name="name">
         <%--value的值才是真正传递到后台的值,option标签中的值只是页面显示用--%>
