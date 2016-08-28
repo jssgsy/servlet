@@ -14,3 +14,4 @@ maven组织的servlet项目,用来测试j2ee方面的小知识.
 * 各种类型listener的使用;
 * 编码过滤器(只对post请求有效);
 * 利用cookie传递数据;
+* 利用commons-fileupload进行文件上传；

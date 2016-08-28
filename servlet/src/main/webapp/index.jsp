@@ -8,18 +8,30 @@
 </head>
 <body>
 
+<h2>普通表单测试</h2>
 <form action="/helloServlet" method="post">
-
     <select name="name">
         <%--value的值才是真正传递到后台的值,option标签中的值只是页面显示用--%>
         <option value="">默认值""</option>
         <option value="用户选定的值value">用户选定的值</option>
-
     </select>
     <input type="submit" >
-
-    <h2>cookie传递数据</h2>
-    <a href="/servlet/cookieServlet?cookieName=cookieValue">访问/cookieServlet</a>
 </form>
+<hr>
+
+<h2>文件上传表单测试</h2>
+<form action="/fileUpload" method="post" enctype="multipart/form-data">
+   普通文本域: <input type="text" name="textInputName"/>
+    <br/>
+    文件上传域: <input type="file" name="fileName" />
+    <br>
+    <input type="submit" >
+</form>
+<hr>
+
+
+<h2>cookie传递数据</h2>
+<a href="/cookieServlet?cookieName=cookieValue">访问/cookieServlet</a>
+
 </body>
 </html>
