@@ -15,6 +15,14 @@
         <option value="">默认值""</option>
         <option value="用户选定的值value">用户选定的值</option>
     </select>
+
+    <br>
+    <select multiple="multiple" name="multiSelection">
+        <option value="111">值为111</option>
+        <option value="222">值为222</option>
+        <option value="333">值为333</option>
+        <option value="444">值为444</option>
+    </select>
     <input type="submit" >
 </form>
 <hr>

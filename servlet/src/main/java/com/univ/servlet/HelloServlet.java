@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 
 /** 
  * @author: liuml
@@ -29,7 +30,15 @@ public class HelloServlet extends HttpServlet {
 		ServletConfig servletConfig = super.getServletConfig();
         logger.debug("给HelloServlet配置的初始化参数为： " + servletConfig.getInitParameter("name"));
         logger.debug("下拉框选中的值为: " + req.getParameter("name"));
-        logger.debug("end  HelloServlet.doGet()---------------");
+
+        /**
+         * 获取多选下拉框的值的方法:String[] strArr = req.getParameterValues(...),
+         * 注意不是req.getParameter(...)方法
+         */
+        String[] multiSelections = req.getParameterValues("multiSelection");
+        logger.debug("获取多选下拉框选中的方法为req.getParameterValues(): " + Arrays.toString(multiSelections));
+
+		logger.debug("end  HelloServlet.doGet()---------------");
 	}
 
 	@Override
