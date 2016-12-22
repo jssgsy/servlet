@@ -59,6 +59,9 @@
     </filter-mapping>
 
     <!-- listeners -->
+    <!--监听器其实也能配置参数,只是不像servlet和filter一样是配置在相应的标签下,
+        而是利用<context-param>标签.即<context-param>中的参数是配给listener的.
+    -->
     <listener>
         <listener-class>com.univ.listener.MyServletRequestListener</listener-class>
     </listener>
