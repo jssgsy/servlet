@@ -1,0 +1,1 @@
+* 所有类型的listener都可以获取到ServletContext对象(通过方法的XXXEvent参数)，进而获取到web.xml中<context-param>的配置值；

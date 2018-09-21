@@ -58,9 +58,16 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <!--context-param是配置给ServletContext使用的，整个web应用共享(只有一个ServletContext对象，所以所有listener都可获取到这里配置的值)-->
+    <context-param>
+        <param-name>name</param-name>
+        <param-value>univ</param-value>
+    </context-param>
+
     <!-- listeners -->
-    <!--监听器其实也能配置参数,只是不像servlet和filter一样是配置在相应的标签下,
-        而是利用<context-param>标签.即<context-param>中的参数是配给listener的.
+    <!--
+        1. 监听器也能配置参数,只是不像servlet和filter一样是配置在相应的标签下,而是直接获取context-param的参数
+        2. 会先初始化MyServletContextListener
     -->
     <listener>
         <listener-class>com.univ.listener.MyServletRequestListener</listener-class>
