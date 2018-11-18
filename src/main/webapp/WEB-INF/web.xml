@@ -98,7 +98,13 @@
     </listener>
 
     <welcome-file-list>
+        <!--
+        这里文件的路径不是基于webapp，而是基于具体的请求
+        如请求http://localhost:8080，则为webapp下的index.jsp页面；
+        如请求http://localhost:8080/welcome_file，则为webapp下的welcome_file/hello.html页面；
+        -->
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.jsp</welcome-file>
+        <welcome-file>hello.html</welcome-file>
     </welcome-file-list>
 </web-app>
