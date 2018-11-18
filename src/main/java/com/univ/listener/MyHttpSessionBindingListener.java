@@ -1,5 +1,6 @@
 package com.univ.listener;
 
+import com.univ.util.ElementShow;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpSessionBindingEvent;
@@ -11,15 +12,25 @@ import javax.servlet.http.HttpSessionBindingListener;
  * @version 1.0
  */
 
-public class MyHttpSessionBindingListener implements HttpSessionBindingListener {
+public class MyHttpSessionBindingListener implements HttpSessionBindingListener, ElementShow {
 	private Logger logger = Logger.getLogger(MyHttpSessionBindingListener.class);
 
 	public void valueBound(HttpSessionBindingEvent event) {
+		if (!show()) {
+			return;
+		}
 		logger.debug("MyHttpSessionBindingListener.valueBound(HttpSessionBindingEvent event) ");
 	}
 
 	public void valueUnbound(HttpSessionBindingEvent event) {
+		if (!show()) {
+			return;
+		}
 		logger.debug("MyHttpSessionBindingListener.valueUnbound(HttpSessionBindingEvent event) ");
 	}
 
+	@Override
+	public boolean show() {
+		return false;
+	}
 }

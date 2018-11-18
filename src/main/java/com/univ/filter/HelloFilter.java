@@ -1,5 +1,6 @@
 package com.univ.filter;
 
+import com.univ.util.ElementShow;
 import org.apache.log4j.Logger;
 
 import javax.servlet.*;
@@ -21,7 +22,7 @@ import java.io.IOException;
  * 注意filter生命周期中销毁的时机：容器销毁filter实例前，如reloading时(关闭web容器时似乎不被调用)。
  */
 
-public class HelloFilter implements Filter {
+public class HelloFilter implements Filter, ElementShow {
 
 	private Logger logger = Logger.getLogger(HelloFilter.class);
 
@@ -31,6 +32,9 @@ public class HelloFilter implements Filter {
 	private FilterConfig filterConfig;
 	
 	public void init(FilterConfig filterConfig) throws ServletException {
+		if (!show()) {
+			return;
+		}
 		logger.debug("HelloFilter.init()------------");
 		this.filterConfig = filterConfig;
 	}
@@ -40,6 +44,11 @@ public class HelloFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
+		if (!show()) {
+			// 注意，这里必须将请求交给后面的servlet，否则servlet接收不到请求
+			chain.doFilter(request, response);
+			return;
+		}
 		logger.debug("给HelloFilter配置的初始化参数为： " + filterConfig.getInitParameter("name"));
 		logger.debug("before HelloFilter#chain.doFilter()--------------");
 		chain.doFilter(request, response);//此时将转到后续的filter(servlet)处执行
@@ -48,9 +57,16 @@ public class HelloFilter implements Filter {
 	}
 
 	public void destroy() {
+		if (!show()) {
+			return;
+		}
 		logger.debug("HelloFilter.destroy() ------------");
 	}
 
+	@Override
+	public boolean show() {
+		return false;
+	}
 }
 
 
