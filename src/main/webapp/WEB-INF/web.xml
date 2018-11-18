@@ -22,6 +22,11 @@
             <param-name>name</param-name>
             <param-value>helloServlet</param-value>
         </init-param>
+        <!--可以配置多个init-param-->
+        <!--<init-param>
+            <param-name>name1</param-name>
+            <param-value>helloServlet1</param-value>
+        </init-param>-->
     </servlet>
     <servlet-mapping>
         <servlet-name>helloServlet</servlet-name>
@@ -63,6 +68,12 @@
         <param-name>name</param-name>
         <param-value>univ</param-value>
     </context-param>
+
+    <!--可以配置多个context-param-->
+    <!--<context-param>
+        <param-name>name1</param-name>
+        <param-value>univ</param-value>
+    </context-param>-->
 
     <!-- listeners -->
     <!--
