@@ -63,7 +63,6 @@ public class HelloFilter implements Filter, ElementShow {
 		logger.debug("HelloFilter.destroy() ------------");
 	}
 
-	@Override
 	public boolean show() {
 		return false;
 	}

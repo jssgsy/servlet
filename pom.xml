@@ -23,7 +23,15 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!--JSP -->
+        <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-catalina -->
+        <!-- 可不引入，这里主要用来查看tomcat的源码 -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>9.0.45</version>
+        </dependency>
+
+        <!--JSP -->
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
