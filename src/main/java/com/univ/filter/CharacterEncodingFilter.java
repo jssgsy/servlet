@@ -49,7 +49,6 @@ public class CharacterEncodingFilter implements Filter, ElementShow {
 
     }
 
-    @Override
     public boolean show() {
         return false;
     }
