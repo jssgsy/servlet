@@ -36,13 +36,13 @@ public class CookieServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         Cookie[] cookies = request.getCookies();
         for (int i = 0; cookies != null && i < cookies.length; i++) {
-            if (cookies[i].getName().equals("lastAccessTime")) {
+            if (cookies[i].getName().equals("univ_cookie")) {
                 out.write("last time you visited here is : "+ cookies[i].getValue());//直接写给浏览器
-                cookies[i].setValue(new Date() + "");
+                cookies[i].setValue("univ_cookie_value_new");
                 response.addCookie(cookies[i]);
             }
         }
-        Cookie c = new Cookie("lastAccessTime", new Date() + "");
+        Cookie c = new Cookie("univ_cookie", "univ_cookie_value");
         c.setMaxAge(60*60*24*30);//设置cookie生存期为一个月
         response.addCookie(c);//将cookie发送给浏览器
     }
