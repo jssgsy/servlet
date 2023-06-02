@@ -6,6 +6,8 @@ maven组织的servlet项目,用来测试j2ee方面的小知识.
 1. 访问方法： http://localhost:8080/servlet/ajax01.html
 2. 访问AjaxServlet时记得加参数name,如： http://localhost:8080/servlet/get_text?name=柳明录
 3. 想看详尽的输出,将log4j.properties中的级别改成debug。
+4. 测试Session，访问：/sessionServlet
+5. 测试header，访问：/headerServlet
 
 ### 包含功能
 
