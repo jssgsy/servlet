@@ -1,0 +1,3 @@
+演示HttpServletRequestWrapper的使用场景；
+
+这里选用的场景：让HttpServletRequest可读两次请求体中的数据；
