@@ -26,7 +26,8 @@ public class UnivSSEServlet extends HttpServlet {
         resp.setHeader("Access-Control-Allow-Origin", "*");
         PrintWriter writer = resp.getWriter();
         for (int i = 1; i < 100; i++) {
-            writer.println("line: "  + i);
+            // 要符合sse数据的格式要求，否则客户端可能没法解析
+            writer.println("data: line: "  + i + "\n");
             // 别忘了
             writer.flush();
             try {
