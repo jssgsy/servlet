@@ -28,6 +28,8 @@ public class UnivSSEServlet extends HttpServlet {
         for (int i = 1; i < 100; i++) {
             // 要符合sse数据的格式要求，否则客户端可能没法解析
             writer.println("data: line: "  + i + "\n");
+            // 可以组合多个部分，重点是：每个部分后均需要有一个换行符
+            // writer.println("id: my_id\ntype:my_type\ndata: line: "  + i + "\n");
             // 别忘了
             writer.flush();
             try {
